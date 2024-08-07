@@ -12,6 +12,10 @@ st.write(
 )
 
 
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
+
+
 title = st.text_input("Name on Smoothies:")
 st.write("The name on smoothie will be:", title)
 
@@ -44,6 +48,7 @@ if ingredients_list:
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
             values ('""" + ingredients_string + """','"""+title+"""')"""
     time_to_insert = st.button('Submit Order')
+    
     
     st.write(my_insert_stmt)
    # st.stop()
